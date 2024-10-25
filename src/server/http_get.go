@@ -9,6 +9,17 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
+
+// @Summary Get user
+// @Description Get user by id
+// @Tags users
+// @Accept  json
+// @Produce  json
+// @Param id path int true "User ID"
+// @Success 200 {object} Users
+// @Failure 404 {object} Error
+// @Failure 500 {object} Error
+// @Router /api/get_user_data/{id} [get]
 func getHandler(w http.ResponseWriter, r *http.Request) {
 	id := r.URL.Query().Get("id")
 	ctx := context.Background()
